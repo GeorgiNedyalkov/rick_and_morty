@@ -19,7 +19,7 @@ export default function CharacterList() {
 
 function Character({ character }: { character: ICharacter }) {
     return (
-        <div className="w-40 sm:w-48 lg:w-96">
+        <div className="w-40 sm:w-48 lg:w-96 cursor-pointer hover:scale-110 transition">
             <img
                 className="rounded-xl"
                 src={character.image}
