@@ -1,13 +1,11 @@
-import { Character } from "../store";
+import { ICharacter, useCharacter } from "../store";
 
-export default function CharacterList({
-    characters,
-}: {
-    characters: Character[];
-}) {
+export default function CharacterList() {
+    const { characters } = useCharacter();
+
     const charactersList = (
         <ul className="grid grid-cols-2 gap-4 place-items-center sm:grid-cols-3 sm:gap-10 lg:w-9/12">
-            {characters.map((c: Character) => (
+            {characters.map((c: ICharacter) => (
                 <li key={c.id}>
                     <Character character={c} />
                 </li>
@@ -19,7 +17,7 @@ export default function CharacterList({
     );
 }
 
-function Character({ character }: { character: Character }) {
+function Character({ character }: { character: ICharacter }) {
     return (
         <div className="w-40 sm:w-48 lg:w-96">
             <img
