@@ -1,4 +1,5 @@
 import { ICharacter, useCharacter } from "../store";
+import { Link } from "react-router-dom";
 
 export default function CharacterList() {
     const { characters } = useCharacter();
@@ -20,12 +21,14 @@ export default function CharacterList() {
 function Character({ character }: { character: ICharacter }) {
     return (
         <div className="w-40 sm:w-48 lg:w-96 cursor-pointer hover:scale-110 transition">
-            <img
-                className="rounded-xl"
-                src={character.image}
-                alt={character.name + " image"}
-            />
-            <h2 className="text-center">{character.name}</h2>
+            <Link to={`/${character.id}`}>
+                <img
+                    className="rounded-xl"
+                    src={character.image}
+                    alt={character.name + " image"}
+                />
+                <h2 className="text-center">{character.name}</h2>
+            </Link>
         </div>
     );
 }
